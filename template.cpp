@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
 #include <queue>
@@ -13,6 +14,7 @@ using namespace std;
 
 typedef long long int ll;
 typedef vector<int> vi;
+typedef vector<bool> vb;
 typedef vector<ll> vll;
 typedef vector<vi> vvi;
 typedef pair<int, int> pii;
