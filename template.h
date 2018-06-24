@@ -1,3 +1,6 @@
+#ifndef TEMPLATE
+#define TEMPLATE
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -20,11 +23,4 @@ typedef vector<vi> vvi;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
-
-
-
-	return 0;
-}
+#endif
