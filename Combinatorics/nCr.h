@@ -1,15 +1,15 @@
 #ifndef NCR
 #define NCR
 
-class combinations {
+class Combinations {
 	static const int PRIME = 1e9 + 7;
 	static const int N = 4e6 + 9;
 
-	int product_upto[N];
-	int inverse_upto[N];
+	static int product_upto[N];
+	static int inverse_upto[N];
 
 public:
-	combinations() {
+	static void init() {
 
 		product_upto[0] = 1;
 		product_upto[1] = 1;
@@ -27,7 +27,7 @@ public:
 		}
 	}
 
-	int combination(int n, int r) {
+	static int compute(int n, int r) {
 		if(n < 0 || r < 0) return 1;
 		if(n < r) return 0;
 		
@@ -35,6 +35,8 @@ public:
 			(((1LL * inverse_upto[r]) * inverse_upto[n-r])%PRIME)) % PRIME;
 	}
 };
+int Combinations::product_upto[Combinations::N];
+int Combinations::inverse_upto[Combinations::N];
 
 /***********************************************************************
 
@@ -42,8 +44,8 @@ nCR Code
 
 USAGE:
 
-	unique_ptr<combinations> ncr = make_unique<combinations>();
-	ncr.combination(n, r);
+	Combinations::init();
+	Combinations::compute(n, r);
 
 PARAMETERS:
 
@@ -65,8 +67,7 @@ SPACE COMPLEXITY:
 	
 	16 * N + 8 bytes
 
-NOTE: unique_ptr needed because combinations uses a very large array
-and hence needs to be allocated in heap
+NOTE: Must call init() before any call to compute().
 
 ***********************************************************************/
 
