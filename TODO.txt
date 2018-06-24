@@ -1,0 +1,9 @@
+Algorithms to be added
+1. Euclidian algorithm
+2. Modular inverse
+3. KMP string algo
+4. Edit Distance
+5. Segment Tree
+6. Dijkstras Algo
+7. Kruskal Algo
+8. Prims Algo
