@@ -1,5 +1,5 @@
-#ifndef PRIME
-#define PRIME
+#ifndef PRIME_LARGE
+#define PRIME_LARGE
 
 #include "../template.h"
 
