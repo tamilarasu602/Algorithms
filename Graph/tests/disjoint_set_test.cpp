@@ -2,18 +2,21 @@
 #include "../disjoint_set.h"
 
 class BruteDisjointSet {
-	static const int MAX_N = 1e6;
-	static int parent[MAX_N];
+	int* parent;
 	int N;
 public:
 	BruteDisjointSet(int N) {
-		assert(N <= MAX_N);
+		parent = new int[N];
 		this->N = N;
 		for(int i = 0; i < N; i++) {
 			parent[i] = i;
 		}
 	}
 
+	~BruteDisjointSet() {
+		delete[] parent;
+	}
+	
 	int find(int a) {
 		return parent[a];
 	}
@@ -28,7 +31,6 @@ public:
 		}
 	}
 };
-int BruteDisjointSet::parent[BruteDisjointSet::MAX_N];
 
 bool function_check(int test_cases = 1e3, int MAX_N = 1e5, int MAX_Q = 1e6) {
 

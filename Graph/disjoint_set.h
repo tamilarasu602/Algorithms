@@ -4,19 +4,31 @@
 #include "../template.h"
 
 class DisjointSet {
-	static const int MAX_N = 1e6;
-	static int parent[MAX_N];
-	static int rank[MAX_N];
+	int *parent;
+	int *rank;
+	int N;
+
+	void join_root(int a, int b) {
+		parent[b] = a;
+	}
 public:
-	DisjointSet(int N) {
-		assert(N <= MAX_N);
+	DisjointSet(int n): N(n) {
+		parent = new int[N];
+		rank = new int[N];
+
 		for(int i = 0; i < N; i++) {
 			parent[i] = i;
 			rank[i] = 1;
 		}
 	}
 
+	// ~DisjointSet() {
+	// 	delete[] parent;
+	// 	delete[] rank;
+	// }
+
 	int find(int a) {
+		assert(a < N);
 		int b = a;
 		while (parent[a] != a) {
 			a = parent[a];
@@ -30,6 +42,7 @@ public:
 	}
 
 	void join(int a, int b) {
+		assert(a < N && b < N);
 		int l = find(a);
 		int r = find(b);
 		if(l == r) {
@@ -45,12 +58,7 @@ public:
 		}
 	}
 
-	void join_root(int a, int b) {
-		parent[b] = a;
-	}
 };
-int DisjointSet::parent[DisjointSet::MAX_N];
-int DisjointSet::rank[DisjointSet::MAX_N];
 
 /***********************************************************************
 
@@ -64,7 +72,8 @@ USAGE:
 
 PARAMETERS:
 
-	MAX_N 	- 	Maximum number of disjoint sets.
+	N 		- Maximum number of disjoint sets.
+	a, b 	- Must be less than N.
 
 TIME COMPLEXITY:
 	
