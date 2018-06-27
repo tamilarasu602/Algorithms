@@ -97,36 +97,36 @@ class SegmentTree {
 
 public:
 
-	SegmentTree(int N, int data[]) {
-		this->N = roundup(N);
-		this->tree = new Node[2*this->N];
+	SegmentTree(int n, int data[]) {
+		N = roundup(n);
+		tree = new Node[2*N];
 
-		for(int i = 0; i < this->N; i++) {
-			if(i < N) {
-				tree[i + this->N].setLeaf(i + this->N, data[i]);
+		for(int i = 0; i < N; i++) {
+			if(i < n) {
+				tree[i + N].setLeaf(i + N, data[i]);
 			} else {
-				tree[i + this->N].setLeaf(i + this->N, 0);
+				tree[i + N].setLeaf(i + N, 0);
 			}
 		}
 
-		for(int i = this->N - 1; i >= 1; i--) {
+		for(int i = N - 1; i >= 1; i--) {
 			tree[i].set(tree, i);
 		}
 		tree[0].setLeaf(0, 0);
 	}
 
 	// ~SegmentTree() {
-	// 	if(this->tree != NULL) {
-	// 		delete[] this->tree;
-	// 	}
+	// 	delete[] this->tree;
 	// }
 
 	void replace(int n, int v) {
-		tree[this->N + n].replaceLeaf(tree, v);
+		assert(n >= 0 && n < N);
+		tree[N + n].replaceLeaf(tree, v);
 	}
 
 	ll query(int l, int r) {
-		tree[1].query(tree, l, r, 0, this->N - 1);
+		assert(l >= 0 && l < N && r >= 0 && r < N);
+		tree[1].query(tree, l, r, 0, N - 1);
 		return tree[1].ans;
 	}
 };

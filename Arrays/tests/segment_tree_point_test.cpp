@@ -2,7 +2,7 @@
 #include "../segment_tree_point.h"
 
 class BruteSegmentTree {
-	int* data = NULL;
+	int* data;
 	int N;
 public:
 	BruteSegmentTree(int N, int data[]) {
@@ -14,9 +14,7 @@ public:
 	}
 
 	~BruteSegmentTree() {
-		if(this->data != NULL) {
-			delete[] this->data;
-		}
+		delete[] this->data;
 	}
 
 	void replace(int n, int v) {
