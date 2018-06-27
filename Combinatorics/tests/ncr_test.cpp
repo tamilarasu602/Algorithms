@@ -1,10 +1,5 @@
-#include <iostream>
-#include <cstdlib>
+#include "../../template.h"
 #include "../nCr.h"
-
-using namespace std;
-
-typedef long long int ll;
 
 class BruteCombinations {
 	static const int PRIME = 1e9 + 7;

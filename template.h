@@ -23,4 +23,10 @@ typedef vector<vi> vvi;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
+// utility functions
+#define ARGMAX(a, b, c, d) (((a) > (b)) ? (c) : (d))
+#define ARGMIN(a, b, c, d) (((a) > (b)) ? (c) : (d))
+#define VMAX(a, b) ARGMAX(a, b, a, b)
+#define VMIN(a, b) ARGMIN(a, b, a, b)
+
 #endif

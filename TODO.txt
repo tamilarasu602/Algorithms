@@ -6,3 +6,4 @@ Algorithms to be added
 5. Dijkstras Algo
 6. Kruskal Algo
 7. Prims Algo
+8. Sieve of Eratosthenes - divisors for n < 1e6
