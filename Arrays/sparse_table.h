@@ -4,9 +4,6 @@
 #include "../template.h"
 
 class SparseTable {
-	// const static int MAXN = 1e6;
-	// const static int LOGN = 22;
-	// int table[MAX_N][LOGN];
 	vvi table;
 	int N;
 
