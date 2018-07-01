@@ -83,7 +83,7 @@ bool function_check(int test_cases = 1e3, int MAX_N = 1e5, int MAX_Q = 1e6) {
 }
 
 int main() {
-	bool verify = function_check(1e4, 1e5, 1e4);
+	bool verify = function_check(1e5, 10, 1e4);
 
 	cout<<'\r';
 	cout<<"==========================="<<endl;

@@ -18,6 +18,7 @@ class SegmentTree {
 
 		void update(Node* tree) {
 			if(index == 0) return;
+			merge(tree);
 			tree[index/2].update(tree);
 		}
 
